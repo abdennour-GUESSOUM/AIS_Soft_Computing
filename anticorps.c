@@ -159,13 +159,11 @@ void muteAc(Ac *ac,int nbMutations)
   while(random1 ==random2){
     random2 = myRandomMinMax(0,ac->nbVilles-1);
   }
-  printf("Ac intial : %d %d\n", ac->parcours[random1], ac->parcours[random2]);
 
   int temp;
   temp = ac->parcours[random1];
   ac->parcours[random1] = ac->parcours[random2];
   ac->parcours[random2] = temp;
-  printf("Ac muté : %d %d\n", ac->parcours[random1], ac->parcours[random2]);
  }
  calculCoutAc(ac);
 }

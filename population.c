@@ -234,14 +234,14 @@ void selectionMeilleursEtClonesMutes(Population *population)
  /* A completer ... */
   for(int i =0; i<population->nbClones; i++){
   int indiceAC = population->nbIndividus-population->nbClones+i;
-  int indiceClone = population->nbIndividus+i;
+  int indiceClone = i;
 
   int coutAC = population->individus[indiceAC].cout;
   int coutClone = population ->clones[indiceClone].cout;
 
 
     if (coutClone < coutAC){
-            population ->individus = population ->clones;
+            population->individus[indiceAC] = population->clones[indiceClone];
     }
   }
 
