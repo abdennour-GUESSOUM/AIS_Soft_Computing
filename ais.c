@@ -292,6 +292,7 @@ return 0;
   mutationClones(&p);
   selectionMeilleursEtClonesMutes(&p);
   mutationMoinsBons(&p);
+  remplacementMauvaisParNouveaux(&p,nbNouveaux);
   // ...
 
   /* Fin a completer !! */
