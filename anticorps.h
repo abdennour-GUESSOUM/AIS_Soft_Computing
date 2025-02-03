@@ -18,9 +18,8 @@
 /**********************************************************************/
 
 typedef struct { int    parcours[NBVILLES];
-                 int    nbVilles;
                  double cout;
-
+                 int    nbVilles;
                }                            Ac;
 
 extern void genereAc(Ac *ac);

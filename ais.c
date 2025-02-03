@@ -10,11 +10,6 @@
 #include "population.h"
 #include "random.h"
 #include "gnuplot.h"
-
-
-
-
-
  
 /*********************************************************************/
 /*****************************  DEBUT ********************************/
@@ -163,7 +158,6 @@ void recupParams(int argc, char **argv,
 
 int main(int argc, char** argv)
 {
-
  int nbIndividus=TAILLEPOP;
  int nN=N;
  int dD=D;
@@ -186,9 +180,6 @@ int main(int argc, char** argv)
  FILE* fdGnuplotCout;
  FILE* fdBest;
  char* fileNameBest="Best";
-
-
-
  
  /*************************************************/
  /******** Traitement des arguments ***************/
@@ -271,10 +262,7 @@ int main(int argc, char** argv)
  /* Tri d'une Population avec un COUT DECROISSANT =>          */
  /* les moins bons sont a gauche, les meilleurs sont a droite */
 
- triPopulation(&p);
-
- tour=0;
-  /*************************************************/
+/*************************************************/
 /******** Test MuteAC ***************/
 /*************************************************/
 #if 0
@@ -288,6 +276,11 @@ printf("on est la");
 return 0;
 }
 #endif
+
+ triPopulation(&p);
+
+ tour=0;
+ 
  while (tour!=nbGenerations)
  {
   tour++;
@@ -299,7 +292,6 @@ return 0;
   mutationClones(&p);
   selectionMeilleursEtClonesMutes(&p);
   mutationMoinsBons(&p);
-  
   // ...
 
   /* Fin a completer !! */
@@ -358,9 +350,6 @@ return 0;
  sleep(2);                                   /* Dessin des          */
  dessineIndividusPopulation(fdGnuplot,&p,5); /* meilleurs individus */
 #endif
-
-
-
 
  supprimePopulation(&p);
 
