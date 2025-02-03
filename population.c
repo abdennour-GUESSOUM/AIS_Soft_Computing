@@ -256,6 +256,8 @@ void mutationMoinsBons(Population *population)
  /* Dans un premier temps, le nombre de mutations peut etre fixe.  */
 
  (void)population;
+  //triPopulation(population);
+
 
  /* A completer ... */  
 for(int i = 0;i<population->nbIndividus-population->nbClones;i++){
@@ -268,6 +270,13 @@ for(int i = 0;i<population->nbIndividus-population->nbClones;i++){
 void remplacementMauvaisParNouveaux(Population *population, int nbNouveaux)
 {
  (void)population; (void)nbNouveaux;
+ //triPopulation(population);
+
+
+  for(int i = 0;i<nbNouveaux;i++){
+  genereAc(&population->individus[i]) ;
+
+}
 
  /* A completer ... */
 }

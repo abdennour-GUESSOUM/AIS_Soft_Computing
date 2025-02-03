@@ -277,7 +277,7 @@ int main(int argc, char** argv)
   /*************************************************/
 /******** Test MuteAC ***************/
 /*************************************************/
-#if 1
+#if 0
 {
 Ac ac;
 genereAc(&ac);
@@ -295,6 +295,10 @@ return 0;
   /* Par construction, en debut de boucle, la population est deja triee... */
 
   /* A completer ... */
+  clonageMeilleurs(&p);
+  mutationClones(&p);
+  selectionMeilleursEtClonesMutes(&p);
+  mutationMoinsBons(&p);
   
   // ...
 
