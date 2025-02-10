@@ -150,7 +150,15 @@ void cloneAc(const Ac *ac,Ac *nouvelAc)
 /* Mutation d'un Anti-Corps */
 void muteAc(Ac *ac,int nbMutations)
 {
- (void)ac; (void)nbMutations;
+  //mute ac 
+  //echange(ac, nbMutations);
+
+  inversion(ac,nbMutations);
+  //translation(ac,nbMutations)
+}
+
+void echange(Ac *ac,int nbMutations){
+  (void)ac; (void)nbMutations;
  for(int i = 0;i<nbMutations;i++){
   // code d'une transformation
   int random1 = myRandomMinMax(0,ac->nbVilles-1);
@@ -166,4 +174,31 @@ void muteAc(Ac *ac,int nbMutations)
   ac->parcours[random2] = temp;
  }
  calculCoutAc(ac);
+}
+
+//
+void inversion(Ac *ac,int nbMutations){
+  (void)ac; (void)nbMutations;
+  int indice1=myRandomMinMax(0,ac->nbVilles-1);
+  int indice2=myRandomMinMax(0,ac->nbVilles-1);
+  while(indice1 ==indice2){
+    indice2 = myRandomMinMax(0,ac->nbVilles-1);
+  }
+  if (indice1 > indice2){
+    int temp1 = indice2;
+    indice2=indice1;
+    indice1=temp1;
+  }
+  int stopBoucle=(indice2+indice1)/2;
+  for(int i = indice1;i<=stopBoucle;i++){
+    int temp2;
+    temp2 = ac->parcours[indice1];
+    ac->parcours[indice1] = ac->parcours[stopBoucle+i];
+    ac->parcours[indice2] = temp2;
+  }
+}
+
+
+void translation(Ac *ac,int nbMutations){
+
 }

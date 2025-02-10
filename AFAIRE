@@ -1,9 +1,9 @@
 Fonctions a faire:
 
 Dans ais.c, la boucle principale.
-Dans anticorps.c,  muteAc. Reste à faire Inversion + translation 
+Dans anticorps.c,  muteAc. Reste à faire Inversion + translation 3 fonction à creer et les appeller dans mute ac
 Dans population.c, mutationClones.succes
-Dans population.c, selectionMeilleursEtClonesMutes. 2A2 succes, trisouspopulation + transfert à faire
+Dans population.c, selectionMeilleursEtClonesMutes. 2A2 succes, trisouspopulation + transfert à faire success
 Dans population.c, mutationMoinsBons.Succes
 Dans population.c, remplacementMauvaisParNouveaux.Succes
 

@@ -31,5 +31,7 @@ extern void dessineAc(FILE* flot,const Ac *ac);
 extern void dessineParcoursAc(FILE* flot,const Ac *ac);
 extern void cloneAc(const Ac *ac,Ac *nouvelAc);
 extern void muteAc(Ac *ac, int nbMutations);
-
+extern void echange(Ac *ac,int nbMutations);
+extern void inversion(Ac *ac,int nbMutations);
+extern void translation(Ac *ac,int nbMutations);
 #endif /* ANTICORPS_H */
