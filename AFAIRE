@@ -1,11 +1,11 @@
 Fonctions a faire:
 
 Dans ais.c, la boucle principale.
-Dans anticorps.c,  muteAc.
-Dans population.c, mutationClones.
-Dans population.c, selectionMeilleursEtClonesMutes.
-Dans population.c, mutationMoinsBons.
-Dans population.c, remplacementMauvaisParNouveaux.
+Dans anticorps.c,  muteAc. Reste à faire Inversion + translation 
+Dans population.c, mutationClones.succes
+Dans population.c, selectionMeilleursEtClonesMutes. 2A2 succes, trisouspopulation + transfert à faire
+Dans population.c, mutationMoinsBons.Succes
+Dans population.c, remplacementMauvaisParNouveaux.Succes
 
 Et ensuite (ou bien avant) tester:
 ais8, ais16, ais30

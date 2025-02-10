@@ -45,6 +45,11 @@ extern void mutationClones(Population *population);
 /*** Et on garde le meilleur des deux                                ***/
 extern void selectionMeilleursEtClonesMutes(Population *population);
 
+/*** Les meilleurs et les clones sont comparares                     ***/
+/*** tri total des meilleurs et des clones + transfert des meilleurs dans le tableau ***/
+/*** Et on garde le meilleur des deux                                ***/
+extern void selectionMeilleursEtClonesMutesTransfert(Population *population);
+
 /*** Les moins bons doivent etre a gauche (apres un tri par exemple) ***/
 extern void mutationMoinsBons(Population *population);
 

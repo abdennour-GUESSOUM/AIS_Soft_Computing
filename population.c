@@ -248,6 +248,31 @@ void selectionMeilleursEtClonesMutes(Population *population)
 
 }
 
+void selectionMeilleursEtClonesMutesTransfert(Population *population)
+{
+/*** Les meilleurs et les clones sont compares                       ***/
+/*** Chaque couple (meilleur,clone) est evalue...                    ***/
+/*** Et on garde le meilleur des deux                                ***/
+/*** Autre possibilite: tri des meilleurs et des clones (ensemble)   ***/
+/*** Et on garde les meilleurs...                                    ***/
+/*** LES DEUX VERSIONS SONT A FAIRE ET DOIVENT ETRE COMPAREES        ***/
+
+ (void)population;
+ /* A completer ... */
+
+  //tri de la patate (nb individu meilleur + clone)
+  triSousPopulation(population,population->nbIndividus-population->nbClones,population->nbClones*2);
+  
+  //transfert des meilleurs
+  for(int i = 0; i < population->nbClones;i++){
+    int indiceAC = population->nbIndividus-population->nbClones+i;
+    int indiceClone = i;
+    population->individus[indiceAC] =population->clones[indiceClone]; 
+  }
+
+
+}
+
 /*** Les moins bons doivent etre a gauche (apres un tri par exemple) ***/
 void mutationMoinsBons(Population *population)
 {
