@@ -290,7 +290,7 @@ return 0;
   /* A completer ... */
   clonageMeilleurs(&p);
   mutationClones(&p);
-  selectionMeilleursEtClonesMutes(&p);
+  selectionMeilleursEtClonesMutesTransfert(&p);
   mutationMoinsBons(&p);
   remplacementMauvaisParNouveaux(&p,nbNouveaux);
   // ...
