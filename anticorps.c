@@ -171,13 +171,17 @@ void inversion(Ac *ac)
   int random1 = myRandomMinMax(0, ac->nbVilles - 1);
   int random2 = myRandomMinMax(0, ac->nbVilles - 1);
 
+  while (random1 == random2)
+  {
+    random2 = myRandomMinMax(0, ac->nbVilles - 1);
+  }
   if (random1 > random2)
   {
     int tmp = random1;
     random1 = random2;
     random2 = tmp;
   }
-  //[5][6][7][8] -> [8][7][6][5] random 1 ++ random2
+  // [5][6][7][8] -> [8][7][6][5] random 1 ++ random2 --
   while (random1 < random2)
   {
     int temp = ac->parcours[random1];
@@ -187,15 +191,80 @@ void inversion(Ac *ac)
     random2--;
   }
 }
+void translation(Ac *ac)
+{
+  int index1 = myRandomMinMax(0, ac->nbVilles - 1);
+  int index2 = myRandomMinMax(0, ac->nbVilles - 1);
+  int index3 = myRandomMinMax(0, ac->nbVilles - 1);
 
-/* Mutation d'un Anti-Corps */
+  while (index1 == index2 || index2 == index3 || index1 == index3)
+  {
+    if (index1 == index2)
+      index2 = myRandomMinMax(0, ac->nbVilles - 1);
+    else if (index2 == index3)
+      index3 = myRandomMinMax(0, ac->nbVilles - 1);
+    else if (index1 == index3)
+      index3 = myRandomMinMax(0, ac->nbVilles - 1);
+  }
+
+  if (index1 > index2)
+  {
+    int tmp = index1;
+    index1 = index2;
+    index2 = tmp;
+  }
+  if (index2 > index3)
+  {
+    int tmp = index2;
+    index2 = index3;
+    index3 = tmp;
+  }
+  if (index1 > index2)
+  {
+    int tmp = index1;
+    index1 = index2;
+    index2 = tmp;
+  }
+
+  // À partir d'ici, index1 < index2 < index3
+  // Sauvegarder le segment [index1, index2] dans un tableau temporaire
+  int taillesegment = index2 - index1 + 1;
+  int temptab[taillesegment];
+
+  for (int i = 0; i < taillesegment; i++)
+  {
+    temptab[i] = ac->parcours[index1 + i];
+  }
+
+  // Déplacer les éléments entre index2+1 et index3 vers la position index1
+  int taillesegment2 = index3 - index2;
+
+  for (int i = 0; i < taillesegment2; i++)
+  {
+    ac->parcours[index1 + i] = ac->parcours[index2 + 1 + i];
+  }
+
+  // Insérer le segment1 (temptab) sauvegardé à la nouvelle position
+  int position = index1 + taillesegment2;
+
+  for (int i = 0; i < taillesegment; i++)
+  {
+    ac->parcours[position + i] = temptab[i];
+  }
+
+  // Recalculer le coût après la mutation
+  calculCoutAc(ac);
+}
+
 void muteAc(Ac *ac, int nbMutations)
 {
   (void)ac;
   (void)nbMutations;
   for (int i = 0; i < nbMutations; i++)
-    {
-      inversion(ac);
-    }
+  {
+    // transformation(ac);
+    // inversion(ac);
+    translation(ac);
+  }
   calculCoutAc(ac);
 }
